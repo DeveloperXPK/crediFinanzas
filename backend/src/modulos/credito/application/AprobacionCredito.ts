@@ -30,9 +30,7 @@ export class AprobacionCredito {
     this.reglasSecundarias = [new RelacionCreditoBalanza()];
   }
 
-  async ejecutarEvaluacion(
-    datos: any
-  ): Promise<{ aprobado: boolean; motivo: string }> {
+  async ejecutarEvaluacion(datos: any): Promise<{ aprobado: boolean; motivo: string }> {
     let datosCredito: DatosCredito = {
       usuario: datos.usuario,
       ingresos: Number(datos.ingresos),
@@ -61,16 +59,14 @@ export class AprobacionCredito {
 
 
     // Evaluamos la regla secundaria, como solo tenemos una evitamos usar el for
-    const resultadoReglaSecundaria = await this.reglasSecundarias[0].evaluar(datosCredito);
+    const resultadoReglaSecundaria =  this.reglasSecundarias[0].evaluar(datosCredito);
 
     if (!resultadoReglaSecundaria.aprobado) {
       await this.aplicacion.guardar(datos, "RECHAZADO", resultadoReglaSecundaria.motivo!);
       return { aprobado: false, motivo: resultadoReglaSecundaria.motivo! };
     }
 
-
-
-
+    return { aprobado: true, motivo: "Crédito aprobado." };
 
     // Comparativa
 

@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import { CrearCliente, InterfazCliente } from '../domain/InterfazCliente';
+import { CrearCliente, InterfazCliente } from '../domain/interfaces/InterfazCliente';
 import { Cliente } from '../domain/Cliente';
 
 export class CrearClienteServicio {

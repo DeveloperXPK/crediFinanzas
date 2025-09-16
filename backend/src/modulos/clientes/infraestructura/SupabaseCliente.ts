@@ -1,5 +1,5 @@
 import { supabase } from "../../../config/supabaseCliente";
-import { CrearCliente, InterfazCliente } from "../domain/InterfazCliente";
+import { InterfazCliente, CrearCliente } from "../domain/interfaces/InterfazCliente";
 import { Usuario } from "../domain/Usuario";
 import { Cliente } from "../domain/Cliente";
 

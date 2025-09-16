@@ -4,9 +4,9 @@ import {
   InterfazCreditoRegla,
 } from "../interfaces/InterfazCredito";
 import { InterfazRiesgoEstrategia } from "../interfaces/InterfazRiesgoEstrategia";
-import { RiesgoAlto } from "./RiesgoAlto";
-import { RiesgoMedio } from "./RiesgoMedio";
-import { RiesgoBajo } from "./RiesgoBajo";
+import { RiesgoAlto } from "../estrategias/RiesgoAlto";
+import { RiesgoMedio } from "../estrategias/RiesgoMedio";
+import { RiesgoBajo } from "../estrategias/RiesgoBajo";
 
 export class RelacionCreditoBalanza implements InterfazCreditoRegla {
   evaluar(data: DatosCredito): ResultadoRegla {

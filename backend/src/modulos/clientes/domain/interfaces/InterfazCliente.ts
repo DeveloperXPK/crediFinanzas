@@ -1,5 +1,5 @@
-import { Cliente } from "./Cliente";
-import { Usuario } from "./Usuario";
+import { Cliente } from "../Cliente";
+import { Usuario } from "../Usuario";
 
 
 // Definimos el DTO (Data Transfer Object) para los datos de creación

@@ -5,5 +5,7 @@ import { AprobacionCredito } from "../application/AprobacionCredito";
 
 const router = Router();
 
-const riesgoRepo = new SupabaseRiesgoRepositorio();
 const aplicacionRepo = new SupabaseAplicacionRepositorio();
+const riesgoRepo = new SupabaseRiesgoRepositorio();
+
+const aprobacionCredito = new AprobacionCredito(aplicacionRepo, riesgoRepo);
