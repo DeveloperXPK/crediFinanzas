@@ -1,4 +1,4 @@
-import { InterfazRiesgoEstrategia } from "./InterfazRiesgoEstrategia";
+import { InterfazRiesgoEstrategia } from "../interfaces/InterfazRiesgoEstrategia";
 
 // Estrategia de riesgo alto
 // La llamaremos cuando la relacion de credito a balanza sea alta ( 0.7 - 0.95 )

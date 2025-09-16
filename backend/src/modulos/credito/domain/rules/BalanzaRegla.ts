@@ -1,4 +1,4 @@
-import { DatosCredito, ResultadoRegla, InterfazCreditoRegla } from "./InterfazCredito";
+import { DatosCredito, ResultadoRegla, InterfazCreditoRegla } from "../interfaces/InterfazCredito";
 
 export class BalanzaRegla implements InterfazCreditoRegla {
 

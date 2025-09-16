@@ -2,8 +2,8 @@ import {
   DatosCredito,
   ResultadoRegla,
   InterfazCreditoRegla,
-} from "./InterfazCredito";
-import { InterfazRiesgoEstrategia } from "./InterfazRiesgoEstrategia";
+} from "../interfaces/InterfazCredito";
+import { InterfazRiesgoEstrategia } from "../interfaces/InterfazRiesgoEstrategia";
 import { RiesgoAlto } from "./RiesgoAlto";
 import { RiesgoMedio } from "./RiesgoMedio";
 import { RiesgoBajo } from "./RiesgoBajo";

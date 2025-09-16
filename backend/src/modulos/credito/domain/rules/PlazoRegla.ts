@@ -1,4 +1,4 @@
-import { DatosCredito, ResultadoRegla, InterfazCreditoRegla } from "./InterfazCredito";
+import { DatosCredito, ResultadoRegla, InterfazCreditoRegla } from "../interfaces/InterfazCredito";
 
 // Exportamos la clase PlazoRegla que implementa la interfaz InterfazCreditoRegla
 // para validar el plazo de un crédito
