@@ -1,4 +1,6 @@
 import { supabase } from "../../../../config/supabaseCliente";
+import { DatosCredito } from "../../domain/rules/InterfazCredito";
+import { InterfazAplicacion } from "./InterfazAplicacion";
 
 export class SupabaseRiesgoRepositorio {
     async obtenerPuntajePorDocumento(usuarioId: string) {
@@ -16,5 +18,26 @@ export class SupabaseRiesgoRepositorio {
         }
 
         return data ? data.puntaje : null;
+    }
+}
+
+// Logica de la aplicacion 
+// Se realiza el guardado de la solicitud sin importar el resultado
+export class SupabaseAplicacion implements InterfazAplicacion {
+    async guardar(solicitud: DatosCredito, resultado: string, motivo: string): Promise<void> {
+        const { error } = await supabase
+        .from('solicitudes_creditos')
+        .insert({
+            monto_solicitado: solicitud.montoSolicitado,
+            plazo_solicitado: solicitud.plazoSolicitado,
+            ingresos: solicitud.ingresos,
+            egresos: solicitud.egresos,
+            resultado: resultado,
+            motivo: motivo
+        });
+
+        if (error) {
+            throw new Error("Error al guardar la solicitud: " + error.message);
+        }
     }
 }
