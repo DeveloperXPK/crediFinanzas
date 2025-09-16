@@ -31,9 +31,7 @@ export class RelacionCreditoBalanza implements InterfazCreditoRegla {
 
     let nivelRiesgo: InterfazRiesgoEstrategia;
 
-    // Determinamos el nivel de riesgo desde lo mas bajo a lo mas alto
-    // Gracias a la creacion de una interfaz de riesgo el codigo esta abierto
-    // a nuevas implementaciones en caso de ser necesario
+    // Elegimos que metodo de riesgo aplicar
     if (relacionCredito < 0.4) {
       nivelRiesgo = new RiesgoBajo();
     } else if (relacionCredito < 0.7) {

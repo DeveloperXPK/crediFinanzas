@@ -28,6 +28,7 @@ export class SupabaseAplicacion implements InterfazAplicacion {
         const { error } = await supabase
         .from('solicitudes_creditos')
         .insert({
+            usuario__id: solicitud.usuario,
             monto_solicitado: solicitud.montoSolicitado,
             plazo_solicitado: solicitud.plazoSolicitado,
             ingresos: solicitud.ingresos,
