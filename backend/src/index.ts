@@ -15,13 +15,9 @@ const corsOptions = {
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS", // Métodos permitidos
   allowedHeaders: "Content-Type, Authorization", // Encabezados permitidos
 };
-
 app.use(cors(corsOptions));
-app.options("*", cors(corsOptions)); 
 
-app.use(express.urlencoded({ extended: true }));
-
-// Nos permite recibir datos desde el formulario
+// Nos permite recibir datos desde el body/urlencoded del formulario
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/credito', creditoRoute);
