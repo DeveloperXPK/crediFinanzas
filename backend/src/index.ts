@@ -11,9 +11,14 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 const corsOptions = {
-  origin: "*",
+  origin: "*", // Permite peticiones de cualquier origen
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS", // Métodos permitidos
+  allowedHeaders: "Content-Type, Authorization", // Encabezados permitidos
 };
+
 app.use(cors(corsOptions));
+app.options("*", cors(corsOptions)); 
+
 app.use(express.urlencoded({ extended: true }));
 
 // Nos permite recibir datos desde el formulario
