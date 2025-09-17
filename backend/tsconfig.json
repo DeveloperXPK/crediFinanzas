@@ -1,12 +1,22 @@
 {
   "compilerOptions": {
-    "target": "es2016",
+    "target": "ES2020",
     "module": "commonjs",
-    "rootDir": "./src", // Indica que nuestro código fuente estará en la carpeta src
-    "outDir": "./dist", // Indica dónde se guardará el código compilado
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+    "lib": [
+      "ES2020"
+    ],
+    "outDir": "./dist",
+    "rootDir": "./src",
     "strict": true,
-    "skipLibCheck": true
-  }
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
