@@ -12,7 +12,7 @@ const aprobacionCredito = new AprobacionCredito(aplicacionRepo, riesgoRepo);
 
 router.post('/solicitud/evaluacion', async (req: Request, res: Response) => {
     try {
-        console.log(req.body);
+        // console.log(req.body);
         const resultadoSolicitud = await aprobacionCredito.ejecutarEvaluacion(req.body);
         res.json(resultadoSolicitud);
     } catch (error: any) {

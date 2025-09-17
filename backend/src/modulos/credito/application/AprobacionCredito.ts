@@ -40,14 +40,14 @@ export class AprobacionCredito {
       plazoSolicitado: Number(datos.plazoSolicitado),
     };
 
-    console.log("Datos de crédito:", datosCredito);
+    // console.log("Datos de crédito:", datosCredito);
     // Validamos las reglas primarias
 
     for (const regla of this.reglasPrimaria) {
       // En las dos reglas primarias que asignamos ambos metodos se llaman evaluar por ellon
       // no presenta inconvenientes
       const resultado = regla.evaluar(datosCredito);
-      console.log("Resultado de la regla primaria:", resultado);
+      // console.log("Resultado de la regla primaria:", resultado);
 
       if (!resultado.aprobado) {
         await this.aplicacion.guardar(datos, "RECHAZADO", resultado.motivo!);
@@ -67,7 +67,7 @@ export class AprobacionCredito {
         datosCredito.numeroDocumento
       );
 
-      console.log("Puntaje de riesgo:", puntaje);
+      // console.log("Puntaje de riesgo:", puntaje);
 
       if (puntaje !== null) {
         datosCredito = { ...datosCredito, puntajeRiesgo: puntaje };
@@ -83,7 +83,7 @@ export class AprobacionCredito {
       datosCredito
     );
 
-    console.log("Resultado de la regla secundaria:", resultadoReglaSecundaria);
+    // console.log("Resultado de la regla secundaria:", resultadoReglaSecundaria);
 
     if (!resultadoReglaSecundaria.aprobado) {
       await this.aplicacion.guardar(

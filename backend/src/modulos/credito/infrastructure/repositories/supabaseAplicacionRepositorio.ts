@@ -19,7 +19,7 @@ export class SupabaseAplicacionRepositorio implements InterfazAplicacion {
             motivo: motivo
         });
 
-        console.log("Solicitud guardada en la base de datos");
+        // console.log("Solicitud guardada en la base de datos");
 
         if (error) {
             throw new Error("Error al guardar la solicitud: " + error.message);

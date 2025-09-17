@@ -9,7 +9,7 @@ export class BalanzaRegla implements InterfazCreditoRegla {
             return { aprobado: true, datos: { balanza } };
         }
 
-        return { aprobado: false, motivo: "La diferencia entre ingresos y egresos debe ser al menos 1." };
+        return { aprobado: false, motivo: "Tus egresos son mayores a tus ingresos." };
     }
 
 }
