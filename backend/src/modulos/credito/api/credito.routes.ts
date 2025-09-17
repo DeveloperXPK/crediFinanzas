@@ -20,4 +20,9 @@ router.post('/solicitud/evaluacion', async (req: Request, res: Response) => {
     }
 })
 
+router.get("/test", (req: Request, res: Response) => {
+  console.log("Solicitud de prueba recibida con éxito");
+  res.status(200).send("¡La ruta de prueba para credito funciona!");
+});
+
 export default router;

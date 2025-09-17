@@ -26,6 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/credito', creditoRoute);
 
+
 app.post("/api/central", async (req, res) => {
   const { tipo_documento, numero_documento } = req.body;
 
