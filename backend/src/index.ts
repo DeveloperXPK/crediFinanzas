@@ -56,6 +56,10 @@ app.post("/api/central", async (req, res) => {
   }
 });
 
+app.get("/api/credito/test", (req, res) => {
+  res.status(200).send("¡La prueba desde INDEX.TS funciona!");
+});
+
 // app.listen(PORT, () => {
 //   console.log(`🚀 Servidor de negocio corriendo en http://localhost:${PORT}`);
 // }); ---> COMENTADA PARA EL DESPLIEGUE EN VERCEL
