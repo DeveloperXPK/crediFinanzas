@@ -288,8 +288,8 @@
             <h5 class="modal-title" id="resultadoModalLabel">Resultado de la solicitud</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
           </div>
-          <div class="modal-body">
-            <pre id="resultadoModalBody" class="mb-0">Procesando...</pre>
+          <div class="modal-body" id="resultadoModalBody">
+            
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -306,12 +306,6 @@
     function cargarDatosPrueba(tipo, numero, puntaje) {
       document.getElementById("tipoDoc").value = tipo;
       document.getElementById("nroDoc").value = numero;
-      
-      // Datos de ejemplo para completar el formulario
-      document.getElementById("ingresosTotales").value = "2000000";
-      document.getElementById("egresosTotales").value = "1500000";
-      document.getElementById("montoSolicitado").value = "10000000";
-      document.getElementById("mesesSolicitado").value = "24";
       
       // Mostrar una notificación
       const toast = document.createElement('div');
@@ -379,7 +373,7 @@
             let html = '';
             html += `<div class="text-center mb-2"><span class="badge ${badgeClass} p-2 fs-5">${statusLabel}</span></div>`;
             if (motivo) {
-              html += `<p><strong>Motivo:</strong> ${motivo}</p>`;
+              html += `<p style="word-wrap: break-word;"><strong>Motivo:</strong> ${motivo}</p>`;
             }
 
             modalBody.innerHTML = html;
