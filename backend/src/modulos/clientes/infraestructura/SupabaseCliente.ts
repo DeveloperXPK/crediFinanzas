@@ -28,29 +28,13 @@ export class SupabaseCliente implements InterfazCliente {
 
 
     async crearUsuario(data: CrearCliente): Promise<Cliente> {
-        const { data: usuario, error } = await supabase
-        .from('usuarios')
-        .insert({
-            usuario: data.usuario,
-            password: data.passwordHash,
-            last_password: data.passwordHash
-        })
-        .select()
-        .single();
-        
-        // Se crea primero el usuario para luego mediante este ID asociarlo a un cliente
-
-        if (error) {
-            throw new Error(`Error al crear usuario: ${error.message}`);
-        }
-
+        // Insertamos directamente en la tabla 'clientes' usando solo los datos necesarios
         const { data: cliente, error: errorCliente } = await supabase
         .from('clientes')
         .insert({
             nombre: data.nombre,
             tipo_documento: data.tipoDocumento,
             numero_documento: data.numeroDocumento,
-            id_usuario: usuario.id // Lo obtenemos de la insercion anterior
         })
         .select()
         .single();
@@ -60,12 +44,12 @@ export class SupabaseCliente implements InterfazCliente {
         }
 
         // Retornamos el cliente creado
+        // Retornamos el cliente creado. El modelo Cliente fue adaptado para no requerir usuarioId
         return new Cliente(
-            cliente.id, 
-            cliente.nombre, 
-            cliente.tipo_documento, 
-            cliente.numero_documento, 
-            cliente.id_usuario,
+            cliente.id,
+            cliente.nombre,
+            cliente.tipo_documento,
+            cliente.numero_documento,
             cliente.creado
         );
         

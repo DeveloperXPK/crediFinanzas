@@ -1,5 +1,6 @@
 export interface DatosCredito {
-    usuario: string; // Requerimos el usuario para hacer el seguimiento y consulta a central de riesgo
+    tipoDocumento: string;
+    numeroDocumento: string;
     ingresos: number;
     egresos: number;
     montoSolicitado: number;

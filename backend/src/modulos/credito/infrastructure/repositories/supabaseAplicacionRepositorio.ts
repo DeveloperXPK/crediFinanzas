@@ -7,9 +7,10 @@ import { InterfazAplicacion } from "../../domain/interfaces/InterfazAplicacion";
 export class SupabaseAplicacionRepositorio implements InterfazAplicacion {
     async guardar(solicitud: DatosCredito, resultado: string, motivo: string): Promise<void> {
         const { error } = await supabase
-        .from('solicitudes_creditos')
+        .from('solicitudes_credito')
         .insert({
-            usuario__id: solicitud.usuario,
+            tipo_documento: solicitud.tipoDocumento,
+            numero_documento: solicitud.numeroDocumento,
             monto_solicitado: solicitud.montoSolicitado,
             plazo_solicitado: solicitud.plazoSolicitado,
             ingresos: solicitud.ingresos,
@@ -17,6 +18,8 @@ export class SupabaseAplicacionRepositorio implements InterfazAplicacion {
             resultado: resultado,
             motivo: motivo
         });
+
+        console.log("Solicitud guardada en la base de datos");
 
         if (error) {
             throw new Error("Error al guardar la solicitud: " + error.message);

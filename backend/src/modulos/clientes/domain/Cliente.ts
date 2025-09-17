@@ -10,17 +10,12 @@ export class Cliente {
     public numeroDocumento: string;
     public readonly creado: Date;
 
-    // Asignamos la asociacion con el usuario
-    public readonly usuarioId: number;
-    public usuario?: Usuario;
-
-    constructor(id: number, nombre: string, tipoDocumento: TipoDocumento, numeroDocumento: string, creado: Date, usuarioId: number) { 
+    constructor(id: number, nombre: string, tipoDocumento: TipoDocumento, numeroDocumento: string, creado: Date) { 
         this.id = id;
         this.nombre = nombre;
         this.tipoDocumento = tipoDocumento;
         this.numeroDocumento = numeroDocumento;
         this.creado = creado;
-        this.usuarioId = usuarioId;
     }
 
 

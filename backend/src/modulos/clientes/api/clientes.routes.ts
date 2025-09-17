@@ -9,20 +9,18 @@ const crearClienteServicio = new CrearClienteServicio(clienteRepositorio); // Em
 
 router.post('/usuarios/registro', async (req: Request, res: Response) => {
     try {
-        const { usuario, password, nombre, tipoDocumento, numeroDocumento } = req.body;
+        const { nombre, tipoDocumento, numeroDocumento } = req.body;
 
         const nuevoCliente = await crearClienteServicio.ejecutarCreacion({
             nombre,
             tipoDocumento,
-            numeroDocumento,
-            usuario,
-            passwordHash: password // Asignamos el password ya hasheado
+            numeroDocumento
         }); 
 
-        // Si se crea con exito enviamos el Id y nombre del usuario creado
+        // Si se crea con exito enviamos el Id y nombre del cliente creado
         res.status(201).json({
             id: nuevoCliente.id,
-            nombre: nuevoCliente.usuario
+            nombre: nuevoCliente.nombre
         });
 
 

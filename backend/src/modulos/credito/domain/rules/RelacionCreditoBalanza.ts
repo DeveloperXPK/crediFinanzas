@@ -12,12 +12,19 @@ export class RelacionCreditoBalanza implements InterfazCreditoRegla {
   evaluar(data: DatosCredito): ResultadoRegla {
     // Verificamos la relación entre el crédito solicitado y la balanza
 
+    console.log("Evaluando relación entre crédito y balanza...");
+    console.log("Monto solicitado:", data.montoSolicitado);
+    console.log("Plazo solicitado:", data.plazoSolicitado);
+    console.log("Balanza:", data.balanza);
+
     if (!data.balanza || data.balanza <= 0) {
       return {
         aprobado: false,
         motivo: "La balanza debe ser un valor positivo.",
       };
     }
+
+    console.log("Puntaje de riesgo:", data.puntajeRiesgo);
 
     if (!data.puntajeRiesgo || data.puntajeRiesgo < 0) {
       return {
