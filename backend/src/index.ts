@@ -50,6 +50,8 @@ app.post("/api/central", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`🚀 Servidor de negocio corriendo en http://localhost:${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`🚀 Servidor de negocio corriendo en http://localhost:${PORT}`);
+// }); ---> COMENTADA PARA EL DESPLIEGUE EN VERCEL
+
+export default app;
