@@ -353,7 +353,7 @@
         const data = Object.fromEntries(formData);
 
         try {
-          const response = await fetch("http://localhost:3000/api/credito/solicitud/evaluacion", {
+          const response = await fetch("https://credi-finanzas.vercel.app/api/credito/solicitud/evaluacion", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
